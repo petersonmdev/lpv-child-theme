@@ -6,7 +6,7 @@ Author:       	LifeHealth
 Author URI:     http://lifehealth.net.br
 Template:     	storefront
 Description:  	This is a blank child theme for WooThemes StoreFront theme
-Version:      	v4.0.9
+Version:      	v4.0.10
 License:      	GNU General Public License v2 or later
 License URI:  	http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain:  	storefront
@@ -1271,12 +1271,6 @@ a:hover .nav-title,
 
 .post-thumbnail {
 	margin-bottom: 1em;
-}
-
-.post-thumbnail a img {
-	-webkit-backface-visibility: hidden;
-	-webkit-transition: opacity 0.2s;
-	transition: opacity 0.2s;
 }
 
 .post-thumbnail a:hover img,
@@ -4415,10 +4409,6 @@ section {
 	margin-bottom: 0 !important
 }
 
-.content-info {
-	/*border-top: 1px solid #001E67 !important;*/
-}
-
 #post-12 > div > div{
 	text-align: center;
 }
@@ -4526,20 +4516,18 @@ section {
 	#page > header > div.container > div {
  	   margin-right: 0;
     	margin-left: -5px !important;
-}
-
-
+	}
 }
 
 #page > header > div.container > div > a {
-	    margin-top: 20px;
-	}
+	margin-top: 20px;
+}
 
 #page > header > div.container > div > button {
 	border-color: none !important;
 }
 
-#order_review > img{
+#order_review > img {
     width: 90px;
     float: left;
     margin-top: -15px;
