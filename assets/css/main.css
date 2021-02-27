@@ -1,10 +1,6 @@
 /*
 =================================================================
-Developer front-end: Peterson Macedo
-Developer back-end: Felipe Ribeiro
-Date: 10/04/2018
-Life Health
-MEDrx [loja-page]
+Developer: Peterson Macedo
 =================================================================
 */
 
@@ -1110,12 +1106,10 @@ button, input, select, textarea {
 }
 
 a {
-	color: #E7373F;
 	text-decoration: none
 }
 
 a:focus, a:hover {
-	color: #E7373F;
 	text-decoration: underline
 }
 
@@ -3974,7 +3968,8 @@ tbody.collapse.in {
 
 .container-fluid>.navbar-collapse, .container-fluid>.navbar-header, .container>.navbar-collapse, .container>.navbar-header {
 	margin-right: -15px;
-	margin-left: -15px
+	margin-left: -15px;
+	background: #fff;
 }
 
 .navbar-static-top {
@@ -4123,12 +4118,10 @@ tbody.collapse.in {
 }
 
 .navbar-default .navbar-nav>li>a:focus, .navbar-default .navbar-nav>li>a:hover {
-	color: #E7373F;
 	background-color: transparent
 }
 
 .navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover {
-	color: #E7373F;
 	background-color: transparent
 }
 
@@ -6392,7 +6385,6 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
 	margin-top: 0;
-	color: #E7373F;
 	text-transform: uppercase
 }
 
@@ -6412,7 +6404,6 @@ section h2, section h3, section h4, section h5, section h6 {
 section h1:after {
 	content: "";
 	display: block;
-	border-bottom: 2px solid #E7373F;
 	width: 40px;
 	margin: 30px 0
 }
@@ -6420,7 +6411,6 @@ section h1:after {
 section h2:after, section h3:after, section h4:after, section h5:after, section h6:after {
 	content: "";
 	display: block;
-	border-bottom: 2px solid #E7373F;
 	width: 40px;
 	margin: 30px auto
 }
@@ -6975,7 +6965,6 @@ a.cart-contents {
 }
 
 .content-info .list-inline a:hover {
-	color: #E7373F;
 	text-decoration: none
 }
 
@@ -7067,7 +7056,6 @@ a.cart-contents {
 .big-text:before {
 	content: "";
 	display: block;
-	border-bottom: 2px solid #E7373F;
 	width: 40px;
 	margin: 30px auto
 }
@@ -7091,7 +7079,6 @@ a.cart-contents {
 }
 
 .section-bullets ul li:before {
-	color: #E7373F;
 	content: "\e013";
 	font-family: 'Glyphicons Halflings';
 	margin-right: 10px
@@ -7150,7 +7137,6 @@ a.cart-contents {
 	font-size: 24px;
 	line-height: 24px;
 	font-weight: 300;
-	color: #E7373F
 }
 
 @media (min-width:768px) {
@@ -7309,7 +7295,6 @@ a.cart-contents {
 .section-faq .panel-group h4 {
 	text-transform: inherit;
 	text-align: left;
-	color: #E7373F;
 	font-weight: 400;
 	line-height: 30px
 }
@@ -7333,7 +7318,6 @@ a.cart-contents {
 	content: "\2212";
 	float: right;
 	color: grey;
-	color: #E7373F
 }
 
 .section-faq .panel-heading .accordion-toggle.collapsed:before {
@@ -7380,7 +7364,6 @@ a.cart-contents {
 }
 
 .section-references .ref-title {
-	color: #E7373F;
 	font-size: 18px;
 	line-height: 22px;
 	margin: 20px 0 10px 0;
@@ -7429,7 +7412,6 @@ a.cart-contents {
 }
 
 .section-order {
-	background: #E7373F;
 	border-bottom: 1px solid #eee;
 	color: #fff
 }
@@ -7838,21 +7820,10 @@ a.cart-contents {
 	margin-top: -75px
 }
 
-.login, .woocommerce .checkout_coupon, .woocommerce .woocommerce-error, .woocommerce .woocommerce-info, .woocommerce .woocommerce-message {
-	zoom: .75;
-	width: 100%;
-	margin: 10px auto!important
-}
-
 @media (min-width:992px) {
 	.login, .woocommerce .checkout_coupon, .woocommerce .woocommerce-error, .woocommerce .woocommerce-info, .woocommerce .woocommerce-message {
-/*		width: 50%;
-*/		margin: 10px auto!important
+		margin: 10px auto!important
 	}
-}
-
-.woocommerce-billing-fields, .woocommerce-shipping-fields {
-	font-size: 0.88em;
 }
 
 .woocommerce-billing-fields input, .woocommerce-shipping-fields input {
@@ -8080,10 +8051,6 @@ a.cart-contents {
 	text-align: right
 }
 
-.color-primary {
-	color: #E7373F
-}
-
 .color-secondary {
 	color: #75d237
 }
@@ -8095,7 +8062,6 @@ a.cart-contents {
 
 .anchor-link {
 	display: inline-block;
-	background: #E7373F;
 	padding: 2px;
 	border-radius: 50%;
 	font-size: 10px;
@@ -8110,7 +8076,6 @@ a.cart-contents {
 }
 
 .anchor-link:hover {
-	background: #E7373F;
 	color: #fff;
 	text-decoration: none
 }
@@ -8120,7 +8085,6 @@ a.cart-contents {
 	position: absolute;
 	float: left;
 	left: 20px;
-	background: #E7373F;
 	padding: 2px;
 	border-radius: 50%;
 	font-size: 10px;
@@ -8742,7 +8706,6 @@ div.web_seal.seal {
 
 .testimonials .testimony-title {
 	font-weight: 700;
-	color: #E7373F
 }
 
 .testimonials .testimony-meta-right {
@@ -10859,7 +10822,7 @@ body.admin-bar .banner {
      margin-top: 0px; 
 }
 
-#pagarme-credit-cart-form, #order_review > div.opc_order_review, #order_review > div.opc_order_review > table > tbody > tr > td, #order_review > div.opc_order_review > table > tfoot > tr.cart-subtotal > th, #order_review > div.opc_order_review > table > tfoot > tr.order-total > th, #order_review > div.opc_order_review > table > tfoot > tr.shipping > th {
+#order_review > div.opc_order_review, #order_review > div.opc_order_review > table > tbody > tr > td, #order_review > div.opc_order_review > table > tfoot > tr.cart-subtotal > th, #order_review > div.opc_order_review > table > tfoot > tr.order-total > th, #order_review > div.opc_order_review > table > tfoot > tr.shipping > th {
 	background-color: #f2f2f2;
 	padding-left:20px;
 }
@@ -10874,7 +10837,7 @@ body.admin-bar .banner {
 }
 
 #payment > ul > li.wc_payment_method.payment_method_pagarme-credit-card > div {
-	padding: 0 15px;
+	padding: 15px 15px 0;
 }
 
 #payment > ul > li.wc_payment_method.payment_method_pagarme-credit-card > label, #payment > ul > li.wc_payment_method.payment_method_pagarme-banking-ticket > label {
@@ -11119,6 +11082,7 @@ body.woocommerce-checkout article > div > div > div > div {
 	    color: #001E67;
 }
 #payment > ul, #payment > ul >li  {
+	margin: 0;
 	background-color: white;
 }
 
@@ -11139,10 +11103,14 @@ body.woocommerce-checkout article > div > div > div > div {
 
 }
 
+#pagarme-credit-cart-form .woocommerce-error {
+    color: red !important;
+}
+
 #pagarme-credit-cart-form, .payment_method_pagarme-credit-card {
     background: #fff !important;
+}
 
- }
 @media screen and (max-width: 680px) {
 	#payment {
 		padding-left: 10px;
@@ -11458,6 +11426,11 @@ body.woocommerce-checkout article > div > div > form.checkout.woocommerce-checko
 	height: 50px;
 }
 
+form.checkout.woocommerce-checkout ul.woocommerce-error li {
+	margin-bottom: 15px;
+	color: red;
+}
+
 body.woocommerce-checkout article > div > div > form.checkout.woocommerce-checkout > div > div > div.col-md-7 > div.row {
 	padding-bottom: 20px;
 }
@@ -11513,7 +11486,7 @@ body.woocommerce-checkout article > div > div > form.checkout.woocommerce-checko
 }
 
 #payment > header > h3 {
-	color: white;
+	color: white!important;
 	text-align: center;
 }
 
@@ -12256,7 +12229,7 @@ body.woocommerce-checkout article > div > div > div.container > form > div > div
 }
 
 .title-review-order {
-    color: #78ab4c;
+    color: #78ab4c!important;
     padding-top: 10px !important;
     margin-bottom: 0;
     font-size: 1.3em;
@@ -12485,6 +12458,8 @@ body.woocommerce-checkout article > div > div > div > form > div > div.col-md-7 
 
 li.payment_method_pagarme-credit-card .payment_box fieldset .form-row {
 	width: 100%;
+	margin-left: 0;
+	margin-right: 0;
 }
 
 #pagarme-installments {
@@ -12748,6 +12723,8 @@ label[for="shipping_method_0_flat_rate1"]::before{
 #pagarme-credit-cart-form .form-row-first,
 #pagarme-credit-cart-form .form-row-last{
     width: 100% !important;
+	margin-left: 0;
+	margin-right: 0;
 }
 
 .widget_search form::before, .widget_product_search form::before {

@@ -76,7 +76,7 @@ $imediate_shipping = get_field('cor_envio_imediato', 'option');
 
 
 	h1, h2, h3, h4, h5, h6{
-		color:  <?=$primary_color?>;
+		color:  <?=$primary_color?> !important;
 	}
 
 	h1::after, h2::after{
@@ -106,25 +106,25 @@ $imediate_shipping = get_field('cor_envio_imediato', 'option');
 
 
 	#page > header > div.topbar{ position: relative; }
-	#page > header > div.topbar::before{ content: ""; position: absolute; top: 0; width: 100%; height: 6px; background: <?=$primary_color?>; }
-	#page > header > div.topbar::after{ content: ""; position: absolute; top: 6px; width: 100%; height: 4px; background: <?=$secondary_color?>; }
+	#page > header > div.topbar::before{ content: ""; position: absolute; top: 0; width: 100%; height: 6px; background: <?=$primary_color?> !important; }
+	#page > header > div.topbar::after{ content: ""; position: absolute; top: 6px; width: 100%; height: 4px; background: <?=$secondary_color?> !important; }
 	#page > header.scrolled div.topbar::before{ display: none !important }
 	#page > header.scrolled div.topbar::after{ display: none !important }
 
 
 	.benefit-name{ color: <?=$primary_color?> !important; }
 	.section-order-pattern{ display: none !important }
-	.section-order{ position: relative; background: <?=$primary_color?>; }
+	.section-order{ position: relative; background: <?=$primary_color?> !important; }
 	.section-order h2::after{ border-bottom: 2px solid white !important; }
 	.section-order .featured ins .precofinal{ color:  <?=$primary_color?> !important; }
 	.section-order .save{ color:  <?=$save_color?> !important; }
-	.section-order::before{ content: ""; position: absolute; top: 10px; width: 100%; height: 20px; background: <?=$secondary_color?>;  }
+	.section-order::before{ content: ""; position: absolute; top: 10px; width: 100%; height: 20px; background: <?=$secondary_color?> !important;  }
 
 	.accordion-toggle{ color:  <?=$primary_color?> !important; }
 	.accordion-toggle::before{ color:  <?=$primary_color?> !important; }
 	.ref-title{ color:  <?=$primary_color?> !important; }
 	.anchor-ref{ background: <?=$primary_color?> !important; }
-	.section-order .shipping{ color: <?=$imediate_shipping?>  }
+	.section-order .shipping{ color: <?=$imediate_shipping?> !important  }
 
 	#menu-footer-portugues a:hover{ color:  <?=$primary_color?> !important; }
 
@@ -140,17 +140,17 @@ $imediate_shipping = get_field('cor_envio_imediato', 'option');
 	    right: 0;
 	    margin-left: auto;
 	    margin-right: auto;
-	    background: <?=$primary_color?>;
+	    background: <?=$primary_color?> !important;
 	    display: block;
 	    border: 1px solid green;
 	    width: 45px !important; height: 45px !important;
-	    border-top: 4px solid <?=$secondary_color?>;
+	    border-top: 4px solid <?=$secondary_color?> !important;
 	    -webkit-clip-path: polygon(52% 50%, 0 0, 100% 0);
 		clip-path: polygon(52% 50%, 0 0, 100% 0);
 	}
 
 	.big-text::before{
-		border-bottom: 2px solid <?=$primary_color?>;
+		border-bottom: 2px solid <?=$primary_color?> !important;
 	}
 
 	.testimonials .testimony-title {
@@ -168,6 +168,10 @@ $imediate_shipping = get_field('cor_envio_imediato', 'option');
 
 	.section-bullets ul li:before{
 		color: <?=$primary_color?> !important;
+	}
+
+	#page > div.scroll > section.section-main.bg-white > div > div > div.col-md-6.content-text-bloco-1 > h3:after {
+		border-color: <?=$primary_color?> !important;
 	}
 
 

@@ -7,14 +7,32 @@
  *
  * If you don't plan to dequeue the Storefront Core CSS you can remove the subsequent line and as well
  * as the sf_child_theme_dequeue_style() function declaration.
- */
-//add_action( 'wp_enqueue_scripts', 'sf_child_theme_dequeue_style', 999 );
-/**
  * Dequeue the Storefront Parent theme core CSS
  */
-function sf_child_theme_dequeue_style() {
+
+add_action( 'wp_enqueue_scripts', 'lpv_scripts', 999 );
+function lpv_scripts() {    
+    get_template_part( 'style', 'custom' );
+    wp_enqueue_style( 'css-main', get_stylesheet_directory_uri() . '/assets/css/main.css', all );
+    wp_enqueue_style( 'css-animate', get_stylesheet_directory_uri() . '/assets/css/animate.css', array(), '3.6.0', 'all' );
+    
+    wp_enqueue_style( 'style', get_stylesheet_uri() );
+
+    if(is_checkout()) {
+        wp_enqueue_style( 'bootstrap', get_stylesheet_directory_uri() . '/assets/css/bootstrap/bootstrap.min.css', array(), '4.1.0', all );
+        wp_enqueue_style( 'bootstrap-grid', get_stylesheet_directory_uri() . '/assets/css/bootstrap/bootstrap-grid.min.css', array(), '4.1.0', all );
+    }    
+    
+    
+    wp_enqueue_script( 'js-main', get_stylesheet_directory_uri() . '/assets/js/main.js', array(), true );
+    
+
     wp_dequeue_style( 'storefront-style' );
     wp_dequeue_style( 'storefront-woocommerce-style' );
+    
+    
+
+
 }
 /**
  * Note: DO NOT! alter or remove the code above this text and only add your custom PHP functions below this text.
@@ -178,9 +196,6 @@ function woo_add_cart_fee( $cart ){
 
 }
 
-// FIM garantia
-
-
 add_filter('woocommerce_billing_fields', 'custom_woocommerce_billing_fields');
 
 function custom_woocommerce_billing_fields( $fields ) {
@@ -287,23 +302,14 @@ function sv_change_product_price_display( $price ) {
 }
 add_filter( 'woocommerce_cart_item_price', 'sv_change_product_price_display' );
 
-
-
-// EM TEORIA ERA PRA CHECAR O STATUS DA ORDEM E SOMENTE IR PARA A PAGINA SEGUINTE CASO O STATUS MUDE PARA 
-// FAILED OU PROCESSING, MAS NÃO ESTÁ FUNCIONANDO MUITO BEM
-add_action( 'woocommerce_checkout_order_processed', 'is_express_delivery',  1, 1  );
-function is_express_delivery( $order_id ){
-   $order = new WC_Order( $order_id );
-   if($order->has_status('pending')){
-    sleep(5);
-   }
-   else {
-
-   return;
+// Quando cair na página do carrinho redirecionar para homepage
+add_action( 'template_redirect', 'empty_cart_redirection' );
+function empty_cart_redirection(){
+    if( WC()->cart->is_empty() && is_cart() ){
+        wp_safe_redirect( esc_url( home_url( '/' ) ) );
+        exit;
     }
 }
-
-
 
 
 // define the woocommerce_review_order_before_payment callback 
@@ -312,27 +318,27 @@ function action_woocommerce_review_order_before_payment(  ) {
         <script>
             /** */
             /** atualiza para sem juros no select de parcelas */            
-            $("#pagarme-installments option").each(function(){
-                var str = $(this).text();
+            jQuery("#pagarme-installments option").each(function(){
+                var str = jQuery(this).text();
                 var find = '(';
                 var indexOfFirst = str.indexOf(find);
                 res = str.substring(indexOfFirst, -1);
                 //alert( res );
-                $(this).html(res+' (sem juros)');
+                jQuery(this).html(res+' (sem juros)');
             });
             
-            var parcelas = $('#pagarme-installments option:last').val(); // pega a maior parcela           
-            $('#pagarme-installments option:last').prop('selected',true); // marca a maior parcela como default
+            var parcelas = jQuery('#pagarme-installments option:last').val(); // pega a maior parcela           
+            jQuery('#pagarme-installments option:last').prop('selected',true); // marca a maior parcela como default
             
-            $("label[for='pagarme-card-holder-name']").html("Nome impresso no cartão"); // muda o label  do campo nome do cartão
-            $("#billing_address_2_field > label").html("Complemento"); // muda o label do campo endereço 2 p/ Complemento
+            jQuery("label[for='pagarme-card-holder-name']").html("Nome impresso no cartão"); // muda o label  do campo nome do cartão
+            jQuery("#billing_address_2_field > label").html("Complemento"); // muda o label do campo endereço 2 p/ Complemento
 
-            $('#pagarme-installments').change(function(event) {
-              var active = $(this, 'option:selected').val();              
-              $( document ).ajaxComplete(function(){
-                $("#pagarme-installments option").each(function(){
-                    if ($(this).val() == active) {
-                        $(this).prop('selected', true);
+            jQuery('#pagarme-installments').change(function(event) {
+              var active = jQuery(this, 'option:selected').val();              
+              jQuery( document ).ajaxComplete(function(){
+                jQuery("#pagarme-installments option").each(function(){
+                    if (jQuery(this).val() == active) {
+                        jQuery(this).prop('selected', true);
                     }    
                 });
               });
@@ -432,3 +438,15 @@ function load_variation_settings_fields( $variations ) {
 /**********************
 *** Fim custom fields variations.
 ***********/
+
+// EM TEORIA ERA PRA CHECAR O STATUS DA ORDEM E SOMENTE IR PARA A PAGINA SEGUINTE CASO O STATUS MUDE PARA 
+// FAILED OU PROCESSING, MAS NÃO ESTÁ FUNCIONANDO MUITO BEM
+add_action( 'woocommerce_checkout_order_processed', 'is_express_delivery',  1, 1  );
+function is_express_delivery( $order_id ){
+    $order = new WC_Order( $order_id );
+    if($order->has_status('on_hold')){
+        sleep(5);
+    } else {
+        return;
+    }
+}

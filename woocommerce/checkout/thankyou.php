@@ -10,74 +10,57 @@
  * happen. When this occurs the version of the template file will be bumped and
  * the readme will list any important changes.
  *
- * @see 	    https://docs.woocommerce.com/document/template-structure/
- * @author 		WooThemes
- * @package 	WooCommerce/Templates
- * @version     3.2.0
+ * @see https://docs.woocommerce.com/document/template-structure/
+ * @package WooCommerce\Templates
+ * @version 3.7.0
  */
+
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 ?>
 
-<div class="woocommerce-order" class="container">
+<div class="woocommerce-order container">
 
 	<?php if ( $order ) : ?>
 
 		<?php if ( $order->has_status( 'failed' ) ) : ?>
-<?php 
+            <?php 
 			$items = $order->get_items();
 			$items = array_pop(array_reverse($items));
 			$link_comprar =  get_site_url() . '/?add-to-cart=' . $items['product_id'] . "&variation_id=" . $items['variation_id'];
 			?>
-			<div class="modal in" tabindex="-1" role="dialog">
-				<div class="modal-dialog" role="document">
-					<div class="modal-content">
-
-						<div class="modal-body">
-							<p class="woocommerce-notice woocommerce-notice--error woocommerce-thankyou-order-failed" style="color:red; text-align: center"><?php _e( 'Unfortunately your order cannot be processed as the originating bank/merchant has declined your transaction. Please attempt your purchase again.', 'woocommerce' ); ?></p>
-							<div class="container"  style="margin:auto; max-width: 400px;" >
-							<div style="margin: 0 auto; width: 210px;">
-								<a style="margin: auto;" href="<?php echo $link_comprar ?>" class="text-center btn btn-secondary cta-1 page-scroll btn-buy">Tentar novamente</a>
-							</div>
-								<p style="text-align: center;">Você será redirecionado automaticamente em <span id="count">10</span> segundos...</p>
-
-								<script type="text/javascript">
-
-									window.onload = function(){
-
-										(function(){
-											var counter = 10;
-
-											setInterval(function() {
-												counter--;
-												if (counter >= 0) {
-													span = document.getElementById("count");
-													span.innerHTML = counter;
-												}
-												    // Display 'counter' wherever you want to display it.
-												    if (counter === 0) {
-												    //    alert('this is where it happens');
-												    clearInterval(counter);
-												}
-
-											}, 1000);
-
-										})();
-
-									}
-
-								</script>
-
-								<meta http-equiv="refresh" content="10;url=<?php echo $link_comprar ?>" />
-							</div>
-						</div>
-
-					</div>
-				</div>
+			
+			<p class="woocommerce-notice woocommerce-notice--error woocommerce-thankyou-order-failed text-center"><?php _e( 'Unfortunately your order cannot be processed as the originating bank/merchant has declined your transaction. Please attempt your purchase again.', 'woocommerce' ); ?></p>
+			<div class="container"  style="margin:auto; max-width: 400px;" >
+			<div style="margin: 0 auto; width: 210px;">
+				<a style="margin: auto;" href="<?php echo $link_comprar ?>" class="text-center btn btn-info w-100 mb-4">Tentar novamente</a>
 			</div>
-<div class="modal-backdrop fade in"></div>
+				<p style="text-align: center;">Você será redirecionado automaticamente em <span id="count">10</span> segundos...</p>
+
+				<script type="text/javascript">
+					window.onload = function(){
+						(function(){
+							var counter = 10;
+							setInterval(function() {
+								counter--;
+								if (counter >= 0) {
+									span = document.getElementById("count");
+									span.innerHTML = counter;
+								}
+									// Display 'counter' wherever you want to display it.
+									if (counter === 0) {
+									//    alert('this is where it happens');
+									clearInterval(counter);
+								}
+							}, 1000);
+						})();
+					}
+				</script>
+
+				<meta http-equiv="refresh" content="10;url=<?php echo $link_comprar ?>" />
+			</div>
 
 		<?php elseif ( $order->has_status( 'processing' ) ) : ?>
 
@@ -132,16 +115,16 @@ if ( ! defined( 'ABSPATH' ) ) {
 				<?php endif; ?>
 
 			</ul>
-			<?php else : ?>
-				<div class="container">
-    <img style="max-width: 200px;" src="<?php echo get_template_directory_uri(); ?>/assets/junk/images/loading.gif ?>" class="center">
-    </div>
-			<script type="text/javascript">
-				window.location.reload();
-
-			</script>
-
-			?>
+        <?php else : ?>
+            <div class="container">
+				<p class="text-center p-5 my-5">Aguarde!<br>Ainda estamos processando seu pedido</p>
+            </div>
+            <script type="text/javascript">
+                setTimeout(function() {
+					window.location.reload(1);
+				}, 1000); // 3 minutos
+            </script>
+            
 		<?php endif; ?>
 
 		<?php do_action( 'woocommerce_thankyou_' . $order->get_payment_method(), $order->get_id() ); ?>
@@ -155,6 +138,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 	<?php endif; ?>
 
-	<p><a href="<?php echo get_site_url(); ?>"><button class="button btn-cart btn btn-md Green">Voltar</button></a></p>
+	<p><a href="<?php echo get_site_url(); ?>"><button class="button btn btn-info text-white">Voltar</button></a></p>
 
 </div>

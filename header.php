@@ -15,34 +15,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
     <link rel="profile" href="http://gmpg.org/xfn/11">
     <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
-
-    <?php wp_head(); ?>
-
-    <?php if(is_page('checkout')): ?>
-    <!-- boostrap css e js -->
-    <link href="<?php echo get_stylesheet_directory_uri(); ?>/assets/css/bootstrap/bootstrap.min.css" media="screen" rel="stylesheet" type="text/css">
-    <link href="<?php echo get_stylesheet_directory_uri(); ?>/assets/css/bootstrap/bootstrap-grid.min.css" media="screen" rel="stylesheet" type="text/css">
-    <?php endif; ?>
-
-    <!-- Bibliteca landPage -->
-    <script src=<?php echo get_stylesheet_directory_uri(); ?>/assets/js/jquery.js></script>
-    <script src=<?php echo get_stylesheet_directory_uri(); ?>/assets/js/main.js></script>
-
-    <link rel="stylesheet" href=<?php echo get_stylesheet_directory_uri(); ?>/assets/css/main.css>
+    
     <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400" rel="stylesheet">
-
-    <link rel="stylesheet" href=<?php echo get_stylesheet_directory_uri(); ?>/assets/css/animate.css></script>
-    <script src=<?php echo get_stylesheet_directory_uri(); ?>/assets/js/bootstrap-notify.min.js></script>
-    <?php get_template_part( 'style', 'custom' ); ?>
-    <!-- Fim da Biblioteca do site -->
-
+    <?php wp_head(); ?>
    
-    <!-- //////////////////////////////////////////////////////////////////
-    ////////////// PIXEL GOOGLE ANALYTICS
-    ////////////////////////////////////// -->
+    
     <?php if(have_rows('google_analytcs', 'option')): ?>
       <?php while(have_rows('google_analytcs', 'option')): ?>
         <?php the_row(); ?>
+          <!-- //////////////////////////////////////////////////////////////////
+          ////////////// PIXEL GOOGLE ANALYTICS
+          ////////////////////////////////////// -->
+
           <!-- Global site tag (gtag.js) - Google Ads: <?php echo get_sub_field('tag_name', 'option') .' - '. get_sub_field('tag_global', 'option'); ?> -->
           <script async src="https://www.googletagmanager.com/gtag/js?id=<?php echo get_sub_field('tag_global', 'option'); ?>"></script>
           <script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', '<?php echo get_sub_field("tag_global", "option"); ?>');
@@ -54,17 +38,18 @@
   </head>
 
   <body <?php body_class(); ?>>
-   <div id="page" class="site">
-
-    <!-- HEADER CHECKOUT -->
+   <div id="page" class="site">    
     <?php if( is_checkout() ): ?>
+
+      <!-- HEADER CHECKOUT -->
       <?php if ( is_order_received_page() ): ?>
+
         <section class="section-list bg-white bg-seta content-checkout-before">
           <div class="container">
             <div class="row">
               <div class="hidden-xs col-sm-6 col-md-6 col-lg-6" >
                 <div class="col-xs-3 col-md-2 col-lg-2">
-                  <img src=<?php echo get_stylesheet_directory_uri(); ?>/assets/imagens/lock-cert.png alt="" class="img-responsive list-icon">
+                  <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/imagens/lock-cert.png" alt="" class="img-responsive list-icon">
                 </div>
                 <div class="col-lg-10 col-md-10 col-xs-9 list-column">
                   <span class="list-titles"><strong>Garantia de satisfação</strong></span>
@@ -95,7 +80,6 @@
             </div>
           </div>
         </div>
-
 
         <!-- GRID VANTAGES -->
         <section class="section-list bg-white bg-seta topo-checkout">
